@@ -164,11 +164,40 @@ keymap("i", "<C-h>", ":BufferLineCyclePrev<CR>", opts)
 keymap("n", "<C-l>", ":BufferLineCycleNext<CR>", opts)
 keymap("i", "<C-l>", ":BufferLineCycleNext<CR>", opts)
 
-keymap("n", "<A-w>", ":BufferLinePickClose<CR>", opts)
-keymap("i", "<A-w>", ":BufferLinePickClose<CR>", opts)
+keymap("n", "<C-w>", ":BufferLinePickClose<CR>", opts)
+keymap("i", "<C-w>", ":BufferLinePickClose<CR>", opts)
 
-keymap("n", "<A-q>", ":BufferLinePickCloseLeft<CR>", opts)
-keymap("i", "<A-q>", ":BufferLinePickCloseLeft<CR>", opts)
+keymap("n", "<A-q>", ":BufferLineCloseLeft<CR>", opts)
+keymap("i", "<A-q>", ":BufferLineCloseLeft<CR>", opts)
 
-keymap("n", "<A-e>", ":BufferLinePickCloseRight<CR>", opts)
-keymap("i", "<A-e>", ":BufferLinePickCloseRight<CR>", opts)
+keymap("n", "<A-e>", ":BufferLineCloseRight<CR>", opts)
+keymap("i", "<A-e>", ":BufferLineCloseRight<CR>", opts)
+
+keymap("n", "<C-e>", ":BufferLinePick<CR>", opts)
+keymap("i", "<C-e>", ":BufferLinePick<CR>", opts)
+
+-- Windows
+-- Navigate between windows
+keymap("n", "<A-h>", ":wincmd h<CR>", opts)
+keymap("n", "<A-j>", ":wincmd j<CR>", opts)
+keymap("n", "<A-k>", ":wincmd k<CR>", opts)
+keymap("n", "<A-l>", ":wincmd l<CR>", opts)
+
+-- Create new windows
+keymap("n", "<A-v>", ":wincmd v<CR>", opts)
+keymap("n", "<A-b>", ":wincmd s<CR>", opts)
+
+-- Clsoe window
+keymap("n", "<A-w>", ":close<CR>", opts)
+
+-- Move windows around
+keymap("n", "<A-S-h>", ":wincmd H<CR>", opts)
+keymap("n", "<A-S-j>", ":wincmd J<CR>", opts)
+keymap("n", "<A-S-k>", ":wincmd K<CR>", opts)
+keymap("n", "<A-S-l>", ":wincmd L<CR>", opts)
+
+-- Resize windows
+keymap("n", "<A-+>", ":wincmd +<CR>", opts)
+keymap("n", "<A-->", ":wincmd -<CR>", opts)
+keymap("n", "<A-*>", ":wincmd ><CR>", opts)
+keymap("n", "<A-_>", ":wincmd <<CR>", opts)
