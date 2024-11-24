@@ -201,3 +201,12 @@ keymap("n", "<A-+>", ":wincmd +<CR>", opts)
 keymap("n", "<A-->", ":wincmd -<CR>", opts)
 keymap("n", "<A-*>", ":wincmd ><CR>", opts)
 keymap("n", "<A-_>", ":wincmd <<CR>", opts)
+keymap("n", "<A-m>", ":wincmd o<CR>", opts)
+
+-- Sentence navigation
+keymap("n", "<A-s>", "(", opts)
+keymap("n", "<A-g>", ")", opts)
+
+-- Scrolling
+keymap("n", "<A-d>", ":lua require('neoscroll').scroll(1)<CR>", opts)
+keymap("n", "<A-f>", ":lua require('neoscroll').scroll(-1)<CR>", opts)
