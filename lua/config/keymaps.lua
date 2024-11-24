@@ -72,7 +72,7 @@ function Find_and_replace(all, currentWord)
   end
 
   local replacement = vim.fn.input("Replace with: ")
-  if not replacement then
+  if replacement == nil or replacement == "" then
     print("Cancelled")
     return
   end
@@ -97,13 +97,16 @@ keymap("v", "<C-r>", ":lua Find_and_replace(false, true)<CR>", opts)
 
 -- >>Entire file
 keymap("n", "g<C-r>", ":lua Find_and_replace(true, true)<CR>", opts)
+keymap("v", "g<C-r>", ":lua Find_and_replace(true, true)<CR>", opts)
 
 -- >Search word
 -- >>Current line
 keymap("i", "<A-r>", ":lua Find_and_replace(false, false)<CR>", opts)
 keymap("n", "<A-r>", ":lua Find_and_replace(false, false)<CR>", opts)
+keymap("v", "<A-r>", ":lua Find_and_replace(false, false)<CR>", opts)
 -- >>Entire file
-keymap("n", "g<A-r>", ":lua Find_and_replace(true, true)<CR>", opts)
+keymap("n", "g<A-r>", ":lua Find_and_replace(true, false)<CR>", opts)
+keymap("v", "g<A-r>", ":lua Find_and_replace(true, false)<CR>", opts)
 
 keymap("n", "<C-k>", "i[[", opts)
 keymap("i", "<C-k>", "[[", opts)
