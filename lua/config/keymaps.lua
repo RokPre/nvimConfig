@@ -58,6 +58,8 @@ keymap("v", "<S-u>", "<C-r>", opts)
 keymap("n", "f", "*", opts)
 keymap("v", "f", '"zy/<C-R>z<CR>', opts)
 
+local last_find = ""
+local last_replace = ""
 function Find_and_replace(all, currentWord)
   local word
   if currentWord then
@@ -87,8 +89,30 @@ function Find_and_replace(all, currentWord)
     vim.cmd(":s/" .. word .. "/" .. replacement .. "/")
   end
   print("Replaced '" .. word .. "' with '" .. replacement .. "' " .. (all and "globally." or "in the current line."))
+  last_find = word
+  last_replace = replacement
 end
 
+function Repeat_last_replace(all)
+  if last_find == "" or last_replace == "" then
+    print("No previous replace action found.")
+    return
+  end
+
+  if all then
+    vim.cmd(":%s/" .. last_find .. "/" .. last_replace .. "/g")
+  else
+    vim.cmd(":s/" .. last_find .. "/" .. last_replace .. "/")
+  end
+  print(
+    "Repeated replacing '"
+      .. last_find
+      .. "' with '"
+      .. last_replace
+      .. "' "
+      .. (all and "globally." or "in the current line.")
+  )
+end
 -- >Word under cursor
 -- >>Current line
 keymap("i", "<C-r>", ":lua Find_and_replace(false, true)<CR>", opts)
@@ -108,6 +132,14 @@ keymap("v", "<A-r>", ":lua Find_and_replace(false, false)<CR>", opts)
 keymap("n", "g<A-r>", ":lua Find_and_replace(true, false)<CR>", opts)
 keymap("v", "g<A-r>", ":lua Find_and_replace(true, false)<CR>", opts)
 
+-- Repeat last replace
+keymap("n", "<leader>r", ":lua Repeat_last_replace(false)<CR>", opts)
+keymap("i", "<leader>r", ":lua Repeat_last_replace(false)<CR>", opts)
+
+-- Repeat last replace
+keymap("n", "g<leader>r", ":lua Repeat_last_replace(true)<CR>", opts)
+keymap("i", "g<leader>r", ":lua Repeat_last_replace(true)<CR>", opts)
+
 keymap("n", "<C-k>", "i[[", opts)
 keymap("i", "<C-k>", "[[", opts)
 keymap("v", "<C-k>", ':"<C-R>=[[<C-R>".."]]"<CR>', opts) -- Surrounds selected text with [[ ]]
@@ -124,3 +156,19 @@ keymap("n", "<C-d>", ":ObsidianToday<CR>", opts)
 
 keymap("n", "<A-t>", insert_current_time, opts)
 keymap("i", "<A-t>", insert_current_time, opts)
+
+-- Buffers
+keymap("n", "<C-h>", ":BufferLineCyclePrev<CR>", opts)
+keymap("i", "<C-h>", ":BufferLineCyclePrev<CR>", opts)
+
+keymap("n", "<C-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("i", "<C-l>", ":BufferLineCycleNext<CR>", opts)
+
+keymap("n", "<A-w>", ":BufferLinePickClose<CR>", opts)
+keymap("i", "<A-w>", ":BufferLinePickClose<CR>", opts)
+
+keymap("n", "<A-q>", ":BufferLinePickCloseLeft<CR>", opts)
+keymap("i", "<A-q>", ":BufferLinePickCloseLeft<CR>", opts)
+
+keymap("n", "<A-e>", ":BufferLinePickCloseRight<CR>", opts)
+keymap("i", "<A-e>", ":BufferLinePickCloseRight<CR>", opts)
