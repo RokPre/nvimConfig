@@ -154,9 +154,8 @@ keymap("i", "<leader>r", ":lua Repeat_last_replace(false)<CR>", opts)
 keymap("n", "g<leader>r", ":lua Repeat_last_replace(true)<CR>", opts)
 keymap("i", "g<leader>r", ":lua Repeat_last_replace(true)<CR>", opts)
 
-keymap("n", "<C-k>", "i[[", opts)
-keymap("i", "<C-k>", "[[", opts)
-keymap("v", "<C-k>", ':"<C-R>=[[<C-R>".."]]"<CR>', opts) -- Surrounds selected text with [[ ]]
+keymap("n", "<A-o>", "i[[", opts)
+keymap("v", "<A-o>", ':"<C-R>=[[<C-R>".."]]"<CR>', opts) -- Surrounds selected text with [[ ]]
 
 -- Obsidian keybindings
 local function insert_current_time()
@@ -229,3 +228,9 @@ keymap("n", "<A-f>", ":lua require('neoscroll').scroll(-1)<CR>", opts)
 keymap("n", "<C-m>", "`", opts)
 keymap("i", "<C-m>", "`", opts)
 keymap("v", "<C-m>", "`", opts)
+
+-- Move lines down
+keymap("n", "<C-j>", ":m .+1<CR>==", opts) -- move line up(n)
+keymap("n", "<C-k>", ":m .-2<CR>==", opts) -- move line down(n)
+keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", opts) -- move line up(v)
+keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", opts) -- move line down(v)
