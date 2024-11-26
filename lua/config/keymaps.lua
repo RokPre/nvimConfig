@@ -58,6 +58,20 @@ keymap("v", "<S-u>", "<C-r>", opts)
 keymap("n", "f", "*", opts)
 keymap("v", "f", '"zy/<C-R>z<CR>', opts)
 
+local function search()
+  local word = vim.fn.input("Search: ")
+  if word == nil or word == "" then
+    print("No word found")
+    return
+  end
+
+  vim.cmd(":/" .. word)
+end
+
+keymap("n", "<C-f>", search, opts)
+keymap("i", "<C-f>", search, opts)
+keymap("v", "<C-f>", search, opts)
+
 local last_find = ""
 local last_replace = ""
 function Find_and_replace(all, currentWord)
@@ -210,3 +224,8 @@ keymap("n", "<A-g>", ")", opts)
 -- Scrolling
 keymap("n", "<A-d>", ":lua require('neoscroll').scroll(1)<CR>", opts)
 keymap("n", "<A-f>", ":lua require('neoscroll').scroll(-1)<CR>", opts)
+
+-- Marks
+keymap("n", "<C-m>", "`", opts)
+keymap("i", "<C-m>", "`", opts)
+keymap("v", "<C-m>", "`", opts)

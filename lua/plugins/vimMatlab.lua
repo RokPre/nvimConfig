@@ -1,3 +1,0 @@
-return {
-  "daeyun/vim-matlab",
-}
