@@ -148,11 +148,9 @@ keymap("v", "g<A-r>", ":lua Find_and_replace(true, false)<CR>", opts)
 
 -- Repeat last replace
 keymap("n", "<leader>r", ":lua Repeat_last_replace(false)<CR>", opts)
-keymap("i", "<leader>r", ":lua Repeat_last_replace(false)<CR>", opts)
 
 -- Repeat last replace
 keymap("n", "g<leader>r", ":lua Repeat_last_replace(true)<CR>", opts)
-keymap("i", "g<leader>r", ":lua Repeat_last_replace(true)<CR>", opts)
 
 keymap("n", "<A-o>", "i[[", opts)
 keymap("v", "<A-o>", ':"<C-R>=[[<C-R>".."]]"<CR>', opts) -- Surrounds selected text with [[ ]]
@@ -234,3 +232,7 @@ keymap("n", "<C-j>", ":m .+1<CR>==", opts) -- move line up(n)
 keymap("n", "<C-k>", ":m .-2<CR>==", opts) -- move line down(n)
 keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", opts) -- move line up(v)
 keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", opts) -- move line down(v)
+
+keymap("v", "<leader>(", "<Esc>`<i(<Esc>`>a)<Esc>", opts)
+keymap("v", "<leader>[", "<Esc>`<i[<Esc>`>a]<Esc>", opts)
+keymap("v", "<leader>{", "<Esc>`<i{<Esc>`>a}<Esc>", opts)
