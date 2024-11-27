@@ -194,6 +194,11 @@ keymap("n", "<A-j>", ":wincmd j<CR>", opts)
 keymap("n", "<A-k>", ":wincmd k<CR>", opts)
 keymap("n", "<A-l>", ":wincmd l<CR>", opts)
 
+keymap("t", "<A-h>", [[<C-\><C-n>:wincmd h<CR>]], opts)
+keymap("t", "<A-j>", [[<C-\><C-n>:wincmd j<CR>]], opts)
+keymap("t", "<A-k>", [[<C-\><C-n>:wincmd k<CR>]], opts)
+keymap("t", "<A-l>", [[<C-\><C-n>:wincmd l<CR>]], opts)
+
 -- Create new windows
 keymap("n", "<A-v>", ":wincmd v<CR>", opts)
 keymap("n", "<A-b>", ":wincmd s<CR>", opts)
@@ -223,9 +228,13 @@ keymap("n", "<A-d>", ":lua require('neoscroll').scroll(1)<CR>", opts)
 keymap("n", "<A-f>", ":lua require('neoscroll').scroll(-1)<CR>", opts)
 
 -- Marks
-keymap("n", "<C-m>", "`", opts)
-keymap("i", "<C-m>", "`", opts)
-keymap("v", "<C-m>", "`", opts)
+keymap("n", "m", "`", opts)
+keymap("i", "m", "`", opts)
+keymap("v", "m", "`", opts)
+
+keymap("n", "<C-m>", "m", opts)
+keymap("i", "<C-m>", "m", opts)
+keymap("v", "<C-m>", "m", opts)
 
 -- Move lines down
 keymap("n", "<C-j>", ":m .+1<CR>==", opts) -- move line up(n)
