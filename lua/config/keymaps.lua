@@ -229,7 +229,6 @@ keymap("n", "<A-f>", ":lua require('neoscroll').scroll(-1)<CR>", opts)
 
 -- Marks
 keymap("n", "m", "`", opts)
-keymap("i", "m", "`", opts)
 keymap("v", "m", "`", opts)
 
 keymap("n", "<C-m>", "m", opts)
@@ -242,6 +241,6 @@ keymap("n", "<C-k>", ":m .-2<CR>==", opts) -- move line down(n)
 keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", opts) -- move line up(v)
 keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", opts) -- move line down(v)
 
-keymap("v", "<leader>(", "<Esc>`<i(<Esc>`>a)<Esc>", opts)
-keymap("v", "<leader>[", "<Esc>`<i[<Esc>`>a]<Esc>", opts)
-keymap("v", "<leader>{", "<Esc>`<i{<Esc>`>a}<Esc>", opts)
+keymap("v", "<leader>(", "<Esc>`<i(<Esc>`>la)<Esc>", opts)
+keymap("v", "<leader>[", "<Esc>`<i[<Esc>`>la]<Esc>", opts)
+keymap("v", "<leader>{", "<Esc>`<i{<Esc>`>la}<Esc>", opts)
