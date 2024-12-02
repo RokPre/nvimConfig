@@ -157,12 +157,3 @@ vim.cmd("hi NoiceAttr219 guibg=" .. c.bg)
 vim.cmd("hi CursorLineNr guifg=#ff966c")
 vim.cmd("hi LineNrAbove guifg=#a66f59")
 vim.cmd("hi LineNrBelow guifg=#cc8366")
-
-return {
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
-  },
-}
