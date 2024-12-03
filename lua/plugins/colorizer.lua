@@ -1,5 +1,4 @@
 return {
-  -- Other plugins here
   {
     "norcalli/nvim-colorizer.lua",
     config = function()
@@ -9,3 +8,4 @@ return {
     end,
   },
 }
+-- if this ever fails, try: "brenoprata10 /nvim-highlight-colors"

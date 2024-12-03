@@ -241,6 +241,11 @@ keymap("n", "<C-k>", ":m .-2<CR>==", opts) -- move line down(n)
 keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", opts) -- move line up(v)
 keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", opts) -- move line down(v)
 
+-- Parentheses
 keymap("v", "<leader>(", "<Esc>`<i(<Esc>`>la)<Esc>", opts)
 keymap("v", "<leader>[", "<Esc>`<i[<Esc>`>la]<Esc>", opts)
 keymap("v", "<leader>{", "<Esc>`<i{<Esc>`>la}<Esc>", opts)
+keymap("v", '<leader>"', '<Esc>`<i"<Esc>`>la"<Esc>', opts)
+
+-- Checkboxes
+keymap("n", "<C-c>", ":lua require('toggle-checkbox').toggle()<CR>", opts)
