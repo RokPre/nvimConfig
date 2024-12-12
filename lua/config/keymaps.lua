@@ -116,7 +116,7 @@ function Repeat_last_replace(all)
   if all then
     vim.cmd(":%s/" .. last_find .. "/" .. last_replace .. "/g")
   else
-    vim.cmd(":s/" .. last_find .. "/" .. last_replace .. "/")
+    vim.cmd("n:s/" .. last_find .. "/" .. last_replace .. "/")
   end
   print(
     "Repeated replacing '"
