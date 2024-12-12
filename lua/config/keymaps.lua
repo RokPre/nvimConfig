@@ -235,6 +235,8 @@ keymap("n", "<C-m>", "m", opts)
 keymap("i", "<C-m>", "m", opts)
 keymap("v", "<C-m>", "m", opts)
 
+keymap("n", "<S-m>", ":TodoTelescope<CR>", opts)
+
 -- Move lines down
 keymap("n", "<C-j>", ":m .+1<CR>==", opts) -- move line up(n)
 keymap("n", "<C-k>", ":m .-2<CR>==", opts) -- move line down(n)
