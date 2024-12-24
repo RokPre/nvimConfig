@@ -3,7 +3,7 @@
     "host": "192.168.50.59",
     "user": "ubuntu",
     "passwd": "turtlebot",
-    "remote_dir": "/home/ubuntu/catkin_ws/src/qr_park_tb",
+    "remote_dir": "/home/ubuntu",
     "mount_point": "/home/lasim/TB3"
   }
 ]

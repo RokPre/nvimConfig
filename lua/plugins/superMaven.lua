@@ -2,9 +2,7 @@ return {
   {
     "supermaven-inc/supermaven-nvim",
     config = function()
-      require("supermaven-nvim").setup({
-        log_level = "off",
-      })
+      require("supermaven-nvim").setup({})
     end,
   },
 }

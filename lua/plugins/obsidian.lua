@@ -11,7 +11,7 @@ return {
     workspaces = {
       {
         name = "vault",
-        path = "~/Sync/!Drive69/AObsidian/Notes", -- Ensure this matches your vault's root directory
+        path = "~/sync/!Drive69/AObsidian/Notes", -- Ensure this matches your vault's root directory
       },
     },
 

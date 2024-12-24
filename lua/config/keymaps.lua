@@ -19,23 +19,7 @@ keymap("o", "gl", "$", opts)
 keymap("n", "<C-u>", "~h", opts)
 keymap("v", "<C-u>", "~", opts)
 
-local cmp = require("cmp")
-
-cmp.setup({
-  -- Define your completion sources, e.g., nvim_lsp, buffer, etc.
-  sources = {
-    { name = "nvim_lsp" },
-    { name = "buffer" },
-  },
-
-  -- Default key mappings
-  mapping = {
-    ["<Tab>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
-    ["<S-Tab>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-    ["<CR>"] = cmp.mapping.confirm({ select = true }),
-  },
-})
-
+-- Text corection
 keymap("i", "<A-l>", [[<C-g>u<Esc>[s1z=`]a<C-g>u]], opts)
 
 -- Disable default behavior of 'd' to not copy to clipboard
@@ -223,19 +207,16 @@ keymap("n", "<A-m>", ":wincmd o<CR>", opts)
 keymap("n", "<A-s>", "(", opts)
 keymap("n", "<A-g>", ")", opts)
 
--- Scrolling
-keymap("n", "<A-d>", ":lua require('neoscroll').scroll(1)<CR>", opts)
-keymap("n", "<A-f>", ":lua require('neoscroll').scroll(-1)<CR>", opts)
-
 -- Marks
 keymap("n", "m", "`", opts)
 keymap("v", "m", "`", opts)
 
-keymap("n", "<C-m>", "m", opts)
-keymap("i", "<C-m>", "m", opts)
-keymap("v", "<C-m>", "m", opts)
+keymap("n", "<S-m>", "m", opts)
+keymap("i", "<S-m>", "m", opts)
+keymap("v", "<S-m>", "m", opts)
 
-keymap("n", "<S-m>", ":TodoTelescope<CR>", opts)
+keymap("n", "<Leader>m", ":Telescope marks<CR>", opts)
+keymap("n", "<Leader>t", ":TodoTelescope<CR>", opts)
 
 -- Move lines down
 keymap("n", "<C-j>", ":m .+1<CR>==", opts) -- move line up(n)
