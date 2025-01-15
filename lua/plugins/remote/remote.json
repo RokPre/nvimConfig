@@ -1,9 +1,9 @@
 [
   {
-    "host": "192.168.50.59",
-    "user": "ubuntu",
-    "passwd": "turtlebot",
-    "remote_dir": "/home/ubuntu",
-    "mount_point": "/home/lasim/TB3"
+    "host": "192.168.9.118",
+    "user": "cameramodule",
+    "passwd": "CMbullet5282CM",
+    "remote_dir": "/home/cameramodule",
+    "mount_point": "/home/lasim/cloudCameraModule/"
   }
 ]

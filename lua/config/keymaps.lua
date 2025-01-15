@@ -211,12 +211,31 @@ keymap("n", "<A-g>", ")", opts)
 keymap("n", "m", "`", opts)
 keymap("v", "m", "`", opts)
 
-keymap("n", "<S-m>", "m", opts)
-keymap("i", "<S-m>", "m", opts)
-keymap("v", "<S-m>", "m", opts)
+keymap("n", "<C-m>", "m", opts)
 
 keymap("n", "<Leader>m", ":Telescope marks<CR>", opts)
 keymap("n", "<Leader>t", ":TodoTelescope<CR>", opts)
+
+local function delete_mark_on_current_line()
+  local current_line = vim.fn.line(".")
+  local marks = "abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789" -- Local marks to check
+  local change = false
+
+  for mark in marks:gmatch(".") do
+    local pos = vim.fn.getpos("'" .. mark) -- Get the position of the mark
+    if pos[2] == current_line then -- Check if the mark is on the current line
+      vim.cmd("delmarks " .. mark)
+      change = true
+    end
+  end
+  if change then
+    vim.cmd("redraw!")
+  else
+    vim.notify("No marks found on current line")
+  end
+end
+
+keymap("n", "dm", delete_mark_on_current_line, opts)
 
 -- Move lines down
 keymap("n", "<C-j>", ":m .+1<CR>==", opts) -- move line up(n)
@@ -229,6 +248,7 @@ keymap("v", "<leader>(", "<Esc>`<i(<Esc>`>la)<Esc>", opts)
 keymap("v", "<leader>[", "<Esc>`<i[<Esc>`>la]<Esc>", opts)
 keymap("v", "<leader>{", "<Esc>`<i{<Esc>`>la}<Esc>", opts)
 keymap("v", '<leader>"', '<Esc>`<i"<Esc>`>la"<Esc>', opts)
+keymap("v", "<leader>'", "<Esc>`<i'<Esc>`>la'<Esc>", opts)
 
 -- Checkboxes
 keymap("n", "<C-c>", ":lua require('toggle-checkbox').toggle()<CR>", opts)

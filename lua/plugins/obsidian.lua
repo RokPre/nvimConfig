@@ -11,7 +11,7 @@ return {
     workspaces = {
       {
         name = "vault",
-        path = "~/sync/!Drive69/AObsidian/Notes", -- Ensure this matches your vault's root directory
+        path = "~/sync/vault", -- Ensure this matches your vault's root directory
       },
     },
 
@@ -23,7 +23,7 @@ return {
       folder = "Dnevnik", -- Folder for daily notes
       date_format = "%Y-%j", -- Date format for daily note IDs
       default_tags = { "Dnevnik" }, -- Default tags for daily notes
-      template = "dailyTemplate", -- Path to the daily template (rename if necessary)
+      template = "DailyNote - template", -- Path to the daily template (rename if necessary)
     },
 
     -- Templates Configuration
