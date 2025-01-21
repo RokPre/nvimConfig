@@ -1,9 +1,0 @@
-[
-  {
-    "host": "192.168.9.118",
-    "user": "cameramodule",
-    "passwd": "CMbullet5282CM",
-    "remote_dir": "/home/cameramodule",
-    "mount_point": "/home/lasim/cloudCameraModule/"
-  }
-]

@@ -3,9 +3,10 @@ return {
   {
     "niuiic/remote.nvim",
     config = function()
+      local dir = "/home/lasim/sync/dotFiles/nvim/lua/plugins/remote/"
       require("remote").setup({
-        config_file = "/home/lasim/sync/dotFiles/nvim/lua/plugins/remote/remote.json",
-        log_file = "/home/lasim/sync/dotFiles/nvim/lua/plugins/remote/remote.log",
+        config_file = dir .. "remote.json",
+        log_file = dir .. "remote.log",
         unmount = function(path)
           return "umount " .. path
         end,

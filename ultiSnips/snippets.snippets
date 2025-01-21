@@ -1,0 +1,13 @@
+snippet function
+def ${1:function_name}(${2}):
+	${3}
+endsnippet
+
+snippet main
+if __name__ == '__main__':
+	${1:init()}
+	try:
+		${2:main()}
+	except  ${3:Exception} as e:
+		print(e)
+endsnippet
