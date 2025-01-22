@@ -10,7 +10,8 @@ return {
                 section_separators = { left = '', right = '' },
                 theme = 'auto'
             },
-            tabline = {
+            tabline = { },
+            sections = { 
                 lualine_a = { 'tabs' },
                 lualine_b = { 'branch' },
                 lualine_c = { 'filename' },
@@ -18,8 +19,7 @@ return {
                 lualine_y = { 'progress' },
                 lualine_z = { 'location' }
             },
-            extensions = { 'quickfix', 'fugitive', 'nvim-tree' },
-            sections = {}
+            extensions = { 'quickfix', 'fugitive', 'nvim-tree' }
         }
     end
 }
