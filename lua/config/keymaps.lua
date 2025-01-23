@@ -22,6 +22,9 @@ keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", opts) -- move line down(v)
 -- Undo/redo
 keymap(modes, "<S-u>", "<C-r>", opts)
 
+-- Save C-s
+keymap("i", "<C-s>", "<Esc>:w<CR>", opts)
+
 -- Search
 keymap("n", "<C-f>", "*", opts)
 keymap("v", "<C-f>", '"zy/<C-R>z<CR>', opts)

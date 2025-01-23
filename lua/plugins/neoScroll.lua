@@ -7,8 +7,8 @@ return {
     })
 
     local keymap = {
-      ["<M-d>"] = function() neoscroll.scroll(-1, {move_cursor = false, duration = 100}) end,
-      ["<M-f>"] = function() neoscroll.scroll(1, {move_cursor = false, duration = 100}) end,
+      ["<M-d>"] = function() neoscroll.scroll(-5, {move_cursor = false, duration = 100}) end,
+      ["<M-f>"] = function() neoscroll.scroll(5, {move_cursor = false, duration = 100}) end,
     }
 
     for key, func in pairs(keymap) do
