@@ -19,6 +19,9 @@ keymap("n", "<C-k>", ":m .-2<CR>==", opts) -- move line down(n)
 keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", opts) -- move line up(v)
 keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", opts) -- move line down(v)
 
+keymap(noimodes, ">", ">gv", opts) -- indent right
+keymap(noimodes, "<", "<gv", opts) -- indent left 
+
 -- Undo/redo
 keymap(modes, "<S-u>", "<C-r>", opts)
 
