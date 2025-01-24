@@ -13,14 +13,19 @@ wk.add({
   { "gl", desc = "End of line", mode = noimodes },
 })
 
+-- Scroll
+-- Vertical scroll is handled by neoscroll plugin
+keymap(modes, "<A-s>", "z<Left>", opts)
+keymap(modes, "<A-g>", "z<Right>", opts)
+
 -- Move text
 keymap("n", "<C-j>", ":m .+1<CR>==", opts) -- move line up(n)
 keymap("n", "<C-k>", ":m .-2<CR>==", opts) -- move line down(n)
 keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", opts) -- move line up(v)
 keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", opts) -- move line down(v)
 
-keymap(noimodes, ">", ">gv", opts) -- indent right
-keymap(noimodes, "<", "<gv", opts) -- indent left 
+keymap("v", ">", ">gv", opts) -- indent right
+keymap("v", "<", "<gv", opts) -- indent left 
 
 -- Undo/redo
 keymap(modes, "<S-u>", "<C-r>", opts)
@@ -35,6 +40,9 @@ keymap("v", "<C-f>", '"zy/<C-R>z<CR>', opts)
 -- Upercase/downcase
 keymap("n", "<C-u>", "~", opts)
 keymap("v", "<C-u>", "~", opts)
+
+-- Chera highlight
+keymap("n", "<Esc>", ":noh<CR>", {noremap = false, silent = true})
 
 -- Disable default behavior of 'd' to not copy to clipboard
 keymap("n", "d", '"0d', opts) -- Normal mode
@@ -101,8 +109,8 @@ keymap("n", "<A-_>", ":wincmd <<CR>", opts)
 keymap("n", "<A-m>", ":wincmd o<CR>", opts)
 
 -- Sentence navigation
-keymap("n", "<A-s>", "(", opts)
-keymap("n", "<A-g>", ")", opts)
+keymap("n", "<A-n>", "(", opts)
+keymap("n", "<A-m>", ")", opts)
 
 -- Marks
 keymap("n", "m", "`", opts)

@@ -7,7 +7,21 @@ return {
         "MunifTanjim/nui.nvim",
     },
     config = function()
-        vim.api.nvim_set_keymap("n", "<Leader>e", ":Neotree toggle<CR>", { noremap = true, silent = true })
+      require("neo-tree").setup({
+        window = {
+          mapping_options = {
+            noremap = true,
+            nowait = true,
+          },
+          mappings = {
+            ["l"] = "open",
+            ["h"] = "",
+            ["v"] = "open_vsplit",
+            ["b"] = "open_split",
+          }
+        },
+      })
+      vim.api.nvim_set_keymap("n", "<Leader>e", ":Neotree toggle<CR>", { noremap = true, silent = true })
     end,
 }
 

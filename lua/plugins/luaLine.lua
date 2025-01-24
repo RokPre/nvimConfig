@@ -17,7 +17,21 @@ return {
                 lualine_c = { 'filename' },
                 lualine_x = { 'encoding', 'fileformat', 'filetype' },
                 lualine_y = { 'progress' },
-                lualine_z = { 'location' }
+                lualine_z = {
+  function()
+    local time = os.date("*t") -- Get the current time
+    local quarter_symbols = { "¼", "½", "¾", "" } -- Quarter symbols
+    local quarter_index = math.floor((time.min + 7.5) / 15) -- Determine the quarter index
+    if quarter_index == 4 then
+      time.hour = (time.hour + 1) % 24 -- Handle hour overflow
+      quarter_index = 0
+    end
+    return string.format("%02d:%s", time.hour, quarter_symbols[quarter_index + 1])
+  end,
+  'data',
+  "require'lsp-status'.status()"
+}
+
             },
             extensions = { 'quickfix', 'fugitive', 'nvim-tree' }
         }
