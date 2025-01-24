@@ -9,17 +9,13 @@ return {
     config = function()
       require("neo-tree").setup({
         window = {
-          mapping_options = {
-            noremap = true,
-            nowait = true,
-          },
           mappings = {
             ["l"] = "open",
-            ["h"] = "",
+            ["h"] = "close_node",
             ["v"] = "open_vsplit",
             ["b"] = "open_split",
           }
-        },
+        }
       })
       vim.api.nvim_set_keymap("n", "<Leader>e", ":Neotree toggle<CR>", { noremap = true, silent = true })
     end,
