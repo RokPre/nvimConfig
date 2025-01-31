@@ -59,22 +59,22 @@ keymap("v", "p", '"0P', opts) -- Visual mode
 
 -- Buffers
 keymap("n", "<C-h>", ":BufferLineCyclePrev<CR>", opts)
-keymap("i", "<C-h>", ":BufferLineCyclePrev<CR>", opts)
+keymap("i", "<C-h>", "<Esc>:BufferLineCyclePrev<CR>", opts)
 
 keymap("n", "<C-l>", ":BufferLineCycleNext<CR>", opts)
-keymap("i", "<C-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("i", "<C-l>", "<Esc>:BufferLineCycleNext<CR>", opts)
 
 keymap("n", "<C-w>", ":BufferLinePickClose<CR>", opts)
-keymap("i", "<C-w>", ":BufferLinePickClose<CR>", opts)
+keymap("i", "<C-w>", "<Esc>:BufferLinePickClose<CR>", opts)
 
 keymap("n", "<A-q>", ":BufferLineCloseLeft<CR>", opts)
-keymap("i", "<A-q>", ":BufferLineCloseLeft<CR>", opts)
+keymap("i", "<A-q>", "<Esc>:BufferLineCloseLeft<CR>", opts)
 
 keymap("n", "<A-e>", ":BufferLineCloseRight<CR>", opts)
-keymap("i", "<A-e>", ":BufferLineCloseRight<CR>", opts)
+keymap("i", "<A-e>", "<Esc>:BufferLineCloseRight<CR>", opts)
 
 keymap("n", "<C-e>", ":BufferLinePick<CR>", opts)
-keymap("i", "<C-e>", ":BufferLinePick<CR>", opts)
+keymap("i", "<C-e>", "<Esc>:BufferLinePick<CR>", opts)
 
 -- Windows
 -- Navigate between windows
