@@ -1,7 +1,7 @@
 local keymap = vim.keymap.set
 local opts = { silent = true, noremap = true }
-local modes = {"n", "i", "v", "t", "o"}
-local noimodes = {"n", "v", "t", "o"}
+local modes = { "n", "i", "v", "t", "o" }
+local noimodes = { "n", "v", "t", "o" }
 
 local wk = require("which-key")
 
@@ -9,14 +9,14 @@ local wk = require("which-key")
 keymap(noimodes, "gh", "^", opts)
 keymap(noimodes, "gl", "$", opts)
 wk.add({
-  { "gh", desc = "Beginning of line", mode = noimodes },
-  { "gl", desc = "End of line", mode = noimodes },
+	{ "gh", desc = "Beginning of line", mode = noimodes },
+	{ "gl", desc = "End of line", mode = noimodes },
 })
 
 -- Scroll
 -- Vertical scroll is handled by neoscroll plugin
-keymap(modes, "<A-s>", "z<Left>", opts)
-keymap(modes, "<A-g>", "z<Right>", opts)
+keymap(modes, "<A-s>", "5z<Left>", opts)
+keymap(modes, "<A-g>", "5z<Right>", opts)
 
 -- Move text
 keymap("n", "<C-j>", ":m .+1<CR>==", opts) -- move line up(n)
@@ -25,7 +25,7 @@ keymap("v", "<C-j>", ":m '>+1<CR>gv=gv", opts) -- move line up(v)
 keymap("v", "<C-k>", ":m '<-2<CR>gv=gv", opts) -- move line down(v)
 
 keymap("v", ">", ">gv", opts) -- indent right
-keymap("v", "<", "<gv", opts) -- indent left 
+keymap("v", "<", "<gv", opts) -- indent left
 
 -- Undo/redo
 keymap(modes, "<S-u>", "<C-r>", opts)
@@ -37,12 +37,12 @@ keymap("i", "<C-s>", "<Esc>:w<CR>", opts)
 keymap("n", "<C-f>", "*", opts)
 keymap("v", "<C-f>", '"zy/<C-R>z<CR>', opts)
 
--- Upercase/downcase
+-- Uppercase/downcase
 keymap("n", "<C-u>", "~", opts)
 keymap("v", "<C-u>", "~", opts)
 
 -- Chera highlight
-keymap("n", "<Esc>", ":noh<CR>", {noremap = false, silent = true})
+keymap("n", "<Esc>", ":noh<CR>", { noremap = false, silent = true })
 
 -- Disable default behavior of 'd' to not copy to clipboard
 keymap("n", "d", '"0d', opts) -- Normal mode
@@ -92,7 +92,7 @@ keymap("t", "<A-l>", [[<C-\><C-n>:wincmd l<CR>]], opts)
 keymap("n", "<A-v>", ":wincmd v<CR>", opts)
 keymap("n", "<A-b>", ":wincmd s<CR>", opts)
 
--- Clsoe window
+-- Close window
 keymap("n", "<A-w>", ":close<CR>", opts)
 
 -- Move windows around
@@ -122,22 +122,22 @@ keymap("n", "<Leader>m", ":Telescope marks<CR>", opts)
 keymap("n", "<Leader>t", ":TodoTelescope<CR>", opts)
 
 local function delete_mark_on_current_line()
-  local current_line = vim.fn.line(".")
-  local marks = "abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789" -- Local marks to check
-  local change = false
+	local current_line = vim.fn.line(".")
+	local marks = "abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789" -- Local marks to check
+	local change = false
 
-  for mark in marks:gmatch(".") do
-    local pos = vim.fn.getpos("'" .. mark) -- Get the position of the mark
-    if pos[2] == current_line then -- Check if the mark is on the current line
-      vim.cmd("delmarks " .. mark)
-      change = true
-    end
-  end
-  if change then
-    vim.cmd("redraw!")
-  else
-    vim.notify("No marks found on current line")
-  end
+	for mark in marks:gmatch(".") do
+		local pos = vim.fn.getpos("'" .. mark) -- Get the position of the mark
+		if pos[2] == current_line then -- Check if the mark is on the current line
+			vim.cmd("delmarks " .. mark)
+			change = true
+		end
+	end
+	if change then
+		vim.cmd("redraw!")
+	else
+		vim.notify("No marks found on current line")
+	end
 end
 
 keymap("n", "dm", delete_mark_on_current_line, opts)
