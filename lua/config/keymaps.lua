@@ -151,3 +151,6 @@ keymap("v", "<leader>'", "<Esc>`<i'<Esc>`>la'<Esc>", opts)
 
 -- Checkboxes
 keymap("n", "<C-c>", ":lua require('toggle-checkbox').toggle()<CR>", opts)
+
+keymap("i", "<A-BS>", "<C-W>", opts)
+keymap("i", "<C-BS>", "<C-W>", opts)
