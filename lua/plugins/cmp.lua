@@ -42,8 +42,8 @@ return {
 				documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
-				["<S-Tab>"] = cmp.mapping.scroll_docs(-4),
-				["<Tab>"] = cmp.mapping.scroll_docs(4),
+				["<Tab>"] = cmp.mapping.select_next_item(),
+				["<S-Tab>"] = cmp.mapping.select_prev_item(),
 				["<Esc>"] = cmp.mapping.abort(),
 				["<C-CR>"] = cmp.mapping.confirm({ select = true }),
 			}),
